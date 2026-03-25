@@ -4,13 +4,6 @@ import { reorgHandler } from './reorg-handler';
 import { generateCycleId } from '../utils/cycle-id';
 import { renewalCooldownService } from './renewal-cooldown-service';
 
-export const LIFECYCLE_COLUMN_MAP: Record<number, string> = {
-  1: 'blockchain_created_at',
-  2: 'blockchain_activated_at',
-  3: 'blockchain_last_renewed_at',
-  4: 'blockchain_canceled_at',
-};
-
 interface ContractEvent {
   type: string;
   ledger: number;

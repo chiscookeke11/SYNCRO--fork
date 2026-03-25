@@ -30,8 +30,8 @@ jest.mock('../src/services/blockchain-service', () => ({
 // Mock renewal cooldown service
 jest.mock('../src/services/renewal-cooldown-service', () => ({
   renewalCooldownService: {
-    checkCooldown: jest.fn().mockResolvedValue({ isOnCooldown: false, canRetry: true, timeRemainingSeconds: 0, lastAttemptAt: null }),
-    recordRenewalAttempt: jest.fn().mockResolvedValue({ new_attempt_at: new Date().toISOString() }),
+    checkCooldown: () => Promise.resolve({ isOnCooldown: false, canRetry: true, timeRemainingSeconds: 0, lastAttemptAt: null }),
+    recordRenewalAttempt: () => Promise.resolve({ new_attempt_at: new Date().toISOString() }),
   },
 }));
 

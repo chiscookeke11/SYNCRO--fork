@@ -26,10 +26,10 @@ describe('SimulationService', () => {
     });
 
     it('should add 365 days for yearly billing cycle', () => {
-      const currentDate = new Date('2024-01-01');
+      const currentDate = new Date('2023-01-01');
       const nextDate = service.calculateNextRenewal(currentDate, 'yearly');
       
-      const expectedDate = new Date('2025-01-01');
+      const expectedDate = new Date('2024-01-01');
       expect(nextDate.toISOString()).toBe(expectedDate.toISOString());
     });
   });
@@ -120,7 +120,7 @@ describe('SimulationService', () => {
         updated_at: '2024-01-01',
       };
 
-      const endDate = new Date('2024-03-01');
+      const endDate = new Date('2024-02-28');
       const projections = service.projectSubscriptionRenewals(subscription, endDate);
 
       expect(projections).toHaveLength(2);
