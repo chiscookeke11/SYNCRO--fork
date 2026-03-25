@@ -22,6 +22,10 @@ if (missing.length > 0) {
     '\nPlease add them to your .env.local file (locally) or to the Vercel project settings.\n' +
     'See client/.env.example for the full list of required variables.\n'
   );
+  if (process.env.CI) {
+    console.warn('⚠️  Running in CI without secrets — skipping hard failure.');
+    process.exit(0);
+  }
   process.exit(1);
 }
 
